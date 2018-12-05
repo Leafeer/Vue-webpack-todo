@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </body>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <div id='app2'>
+        <span v-bind:title='message'>233</span>
+    </div>
+    <div id='app3'>
+        <ol>
+            <li v-for='todo in todos'>
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <div id='app4'>
+        <p>{{message}}</p>
+        <button v-on:click='reverseMessage'>逆转</button>
+    </div>
+    <div id='app5'>
+        <p>{{message}}</p>
+        <input v-model='message'>
+    </div>
+
+   <!--偷懒的分割线-->
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello world!'
+            }
+        })
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                message: '233=' + new Date().toLocaleString()
+            }
+        })
+        var app3 = new Vue({
+            el: '#app3',
+            data: {
+                todos: [
+                    { test: '撒地方f111' },
+                    { test: 'sdf222' },
+                    { test: 'sdf333' }
+                ]
+            }
+        })
+        var app4 = new Vue({
+            el: '#app4',
+            data: {
+                message: 'Hello Vue.js!'
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        })
+        var app5= new Vue({
+            el:'#app5',
+            data:{
+                message: 'hello world!'
+            }
+        })
+    </script>
+
+</html>

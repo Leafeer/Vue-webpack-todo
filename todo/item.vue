@@ -17,7 +17,7 @@ export default {
   methods: {
     deleteTodo() {
       // 往父组件传递 del 方法，参数为当前id
-      this.$emit("del", this.todo.id);
+      this.$emit('del', this.todo.id)
     }
   }
 };
